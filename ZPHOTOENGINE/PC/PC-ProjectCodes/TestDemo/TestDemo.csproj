@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B42BF672-4C45-46EA-ABAC-364D7F99F507}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TestDemo</RootNamespace>
+    <AssemblyName>TestDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>20160111094415978_easyicon_net_96.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge.Imaging, Version=1.6.1.0, Culture=neutral, PublicKeyToken=38eb47741dd0492e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=1.5.0.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=1.6.0.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="CSkin">
+      <HintPath>C:\Users\Trent\Downloads\CSkin 15.3.10.1\CSkin 4.0\CSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BlackWhiteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlackWhiteForm.Designer.cs">
+      <DependentUpon>BlackWhiteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChannelMixForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChannelMixForm.Designer.cs">
+      <DependentUpon>ChannelMixForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColorbalanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColorbalanceForm.Designer.cs">
+      <DependentUpon>ColorbalanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DifussionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DifussionForm.Designer.cs">
+      <DependentUpon>DifussionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExposureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExposureForm.Designer.cs">
+      <DependentUpon>ExposureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GammaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GammaForm.Designer.cs">
+      <DependentUpon>GammaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GaussBlurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GaussBlurForm.Designer.cs">
+      <DependentUpon>GaussBlurForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HighlightShadowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HighlightShadowForm.Designer.cs">
+      <DependentUpon>HighlightShadowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HighpassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HighpassForm.Designer.cs">
+      <DependentUpon>HighpassForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistagramForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistagramForm.Designer.cs">
+      <DependentUpon>HistagramForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageProcessId.cs" />
+    <Compile Include="LevelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LevelForm.Designer.cs">
+      <DependentUpon>LevelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaxForm.Designer.cs">
+      <DependentUpon>MaxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MeanBlurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeanBlurForm.Designer.cs">
+      <DependentUpon>MeanBlurForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedianForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedianForm.Designer.cs">
+      <DependentUpon>MedianForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MinForm.Designer.cs">
+      <DependentUpon>MinForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MosciaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MosciaForm.designer.cs">
+      <DependentUpon>MosciaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotionBlurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotionBlurForm.Designer.cs">
+      <DependentUpon>MotionBlurForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NSaturationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NSaturationForm.Designer.cs">
+      <DependentUpon>NSaturationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PosterizeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PosterizeForm.Designer.cs">
+      <DependentUpon>PosterizeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterForm.Designer.cs">
+      <DependentUpon>FilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrightContrastForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrightContrastForm.Designer.cs">
+      <DependentUpon>BrightContrastForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HSLForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HSLForm.Designer.cs">
+      <DependentUpon>HSLForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RadialBlurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RadialBlurForm.Designer.cs">
+      <DependentUpon>RadialBlurForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReliefForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReliefForm.Designer.cs">
+      <DependentUpon>ReliefForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RotateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RotateForm.Designer.cs">
+      <DependentUpon>RotateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SurfaceBlurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SurfaceBlurForm.Designer.cs">
+      <DependentUpon>SurfaceBlurForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TempreatureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TempreatureForm.Designer.cs">
+      <DependentUpon>TempreatureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThresholdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThresholdForm.Designer.cs">
+      <DependentUpon>ThresholdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="USMForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USMForm.Designer.cs">
+      <DependentUpon>USMForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZoomBlurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZoomBlurForm.Designer.cs">
+      <DependentUpon>ZoomBlurForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZoomForm.Designer.cs">
+      <DependentUpon>ZoomForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZPhotoEngineDll.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BlackWhiteForm.resx">
+      <DependentUpon>BlackWhiteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChannelMixForm.resx">
+      <DependentUpon>ChannelMixForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorbalanceForm.resx">
+      <DependentUpon>ColorbalanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DifussionForm.resx">
+      <DependentUpon>DifussionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExposureForm.resx">
+      <DependentUpon>ExposureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GammaForm.resx">
+      <DependentUpon>GammaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GaussBlurForm.resx">
+      <DependentUpon>GaussBlurForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HighlightShadowForm.resx">
+      <DependentUpon>HighlightShadowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HighpassForm.resx">
+      <DependentUpon>HighpassForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistagramForm.resx">
+      <DependentUpon>HistagramForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LevelForm.resx">
+      <DependentUpon>LevelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaxForm.resx">
+      <DependentUpon>MaxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeanBlurForm.resx">
+      <DependentUpon>MeanBlurForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedianForm.resx">
+      <DependentUpon>MedianForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MinForm.resx">
+      <DependentUpon>MinForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MosciaForm.resx">
+      <DependentUpon>MosciaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotionBlurForm.resx">
+      <DependentUpon>MotionBlurForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NSaturationForm.resx">
+      <DependentUpon>NSaturationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PosterizeForm.resx">
+      <DependentUpon>PosterizeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilterForm.resx">
+      <DependentUpon>FilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BrightContrastForm.resx">
+      <DependentUpon>BrightContrastForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HSLForm.resx">
+      <DependentUpon>HSLForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RadialBlurForm.resx">
+      <DependentUpon>RadialBlurForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReliefForm.resx">
+      <DependentUpon>ReliefForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RotateForm.resx">
+      <DependentUpon>RotateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SurfaceBlurForm.resx">
+      <DependentUpon>SurfaceBlurForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TempreatureForm.resx">
+      <DependentUpon>TempreatureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThresholdForm.resx">
+      <DependentUpon>ThresholdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USMForm.resx">
+      <DependentUpon>USMForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZoomBlurForm.resx">
+      <DependentUpon>ZoomBlurForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZoomForm.resx">
+      <DependentUpon>ZoomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="20160111094415978_easyicon_net_96.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
