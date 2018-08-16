@@ -49,7 +49,8 @@ namespace TestDemo
         public const int ID_MINFILTER = 39;                  //最小值
         public const int ID_NATURALSATURATION = 40;             //自然饱和度
         public const int ID_IMAGEWARP_WAVE = 41;             //Wave变形
-
+        public const int ID_SMARTBLUR = 42;                  //Smart blur
+        public const int ID_ANISOTROPICFILTER = 43;          //Anisotropic filter
 
 
 

@@ -11,7 +11,7 @@ import android.util.Log;
 
 public class PhotoEngine {
 	static {
-	      System.loadLibrary("ZPhotoEngine");
+	      System.loadLibrary("photoengine");
 	      Log.d("loadlibrary","load photoengine done!");
 	  }
 		private static String LOG_TAG = "ZPhotoEngine";
@@ -108,5 +108,6 @@ public native static int native_ZPHOTO_NaturalSaturation(Bitmap bitmap, int satu
 public native static int native_ZPHOTO_ColorBalance(Bitmap bitmap, int cyan, int magenta, int yellow, int channel, boolean preserveLuminosity);
 public native static int native_ZPHOTO_ColorLevel(Bitmap bitmap, int destChannel, byte inputLeftLimit, float inputMiddle, byte inputRightLimit, byte outputLeftLimit , byte outputRightLimit);
 public native static int native_ZPHOTO_LUTFilter(Bitmap bitmap,Bitmap dstbitmap, int ratio);
-
+public native static int native_ZPHOTO_SmartBlurFilter(Bitmap bitmap, int size, int threshold);
+public native static int native_ZPHOTO_AnisotropicFilter(Bitmap bitmap, int iter, float k, float lambda, int offset);
 }

@@ -58,18 +58,6 @@
     <ApplicationIcon>20160111094415978_easyicon_net_96.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AForge.Imaging, Version=1.6.1.0, Culture=neutral, PublicKeyToken=38eb47741dd0492e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Release\AForge.Imaging.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Video, Version=1.5.0.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Release\AForge.Video.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Video.DirectShow, Version=1.6.0.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Release\AForge.Video.DirectShow.dll</HintPath>
-    </Reference>
     <Reference Include="CSkin">
       <HintPath>C:\Users\Trent\Downloads\CSkin 15.3.10.1\CSkin 4.0\CSkin.dll</HintPath>
     </Reference>
@@ -85,6 +73,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnisotropicFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnisotropicFilterForm.Designer.cs">
+      <DependentUpon>AnisotropicFilterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BlackWhiteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +236,12 @@
     <Compile Include="RotateForm.Designer.cs">
       <DependentUpon>RotateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SmartBlurForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SmartBlurForm.Designer.cs">
+      <DependentUpon>SmartBlurForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SurfaceBlurForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +287,9 @@
     <Compile Include="ZPhotoEngineDll.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AnisotropicFilterForm.resx">
+      <DependentUpon>AnisotropicFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BlackWhiteForm.resx">
       <DependentUpon>BlackWhiteForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -377,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RotateForm.resx">
       <DependentUpon>RotateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SmartBlurForm.resx">
+      <DependentUpon>SmartBlurForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SurfaceBlurForm.resx">
       <DependentUpon>SurfaceBlurForm.cs</DependentUpon>

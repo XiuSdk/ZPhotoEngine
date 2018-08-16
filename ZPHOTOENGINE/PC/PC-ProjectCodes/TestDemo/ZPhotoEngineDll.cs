@@ -109,6 +109,10 @@ namespace TestDemo
         [DllImport("ZPhotoEngine.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode, ExactSpelling = true)]
         private static extern int ZPHOTO_LUTFilter(byte* srcData, int width, int height, int stride, byte* Map, int ratio);
 
+        [DllImport("ZPhotoEngine.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode, ExactSpelling = true)]
+        private static extern int ZPHOTO_SmartBlurFilter(byte* srcData, int width, int height, int stride, int size, int threshold);
+        [DllImport("ZPhotoEngine.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode, ExactSpelling = true)]
+        private static extern int ZPHOTO_AnisotropicFilter(byte* srcData, int width, int height, int stride, int iter, float k, float lambda, int offset);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
 
@@ -632,6 +636,24 @@ namespace TestDemo
             ZPHOTO_LUTFilter((byte*)srcData.Scan0, dst.Width, dst.Height, srcData.Stride, (byte*)mapData.Scan0, ratio);
             dst.UnlockBits(srcData);
             map.UnlockBits(mapData);
+            return dst;
+        }
+
+        ////////////////////////////////Update////////////////////////////////////////
+        public Bitmap SmartBlurProcess(Bitmap src, int size, int threshold)
+        {
+            Bitmap dst = new Bitmap(src);
+            BitmapData srcData = dst.LockBits(new Rectangle(0, 0, dst.Width, dst.Height), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
+            ZPHOTO_SmartBlurFilter((byte*)srcData.Scan0, dst.Width, dst.Height, srcData.Stride, size, threshold);
+            dst.UnlockBits(srcData);
+            return dst;
+        }
+        public Bitmap AnisotropicFilter(Bitmap src, int iter, float k)
+        {
+            Bitmap dst = new Bitmap(src);
+            BitmapData srcData = dst.LockBits(new Rectangle(0, 0, dst.Width, dst.Height), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
+            ZPHOTO_AnisotropicFilter((byte*)srcData.Scan0, dst.Width, dst.Height, srcData.Stride, iter, k, 0.25f, 3);
+            dst.UnlockBits(srcData);
             return dst;
         }
         #endregion

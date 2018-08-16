@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace TestDemo
 {
-    public partial class SurfaceBlurForm : CCWin.Skin_Mac
+    public partial class AnisotropicFilterForm : CCWin.Skin_Mac
     {
-        public SurfaceBlurForm(string path)
+        public AnisotropicFilterForm(string path)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
@@ -20,50 +20,51 @@ namespace TestDemo
             if (tmp != null)
             {
                 curBitmap = new Bitmap(tmp, 150 * tmp.Width / Math.Max(tmp.Width, tmp.Height), 150 * tmp.Height / Math.Max(tmp.Width, tmp.Height));
-                pictureBox1.Image = (Image)zPhoto.SurfaceBlur(curBitmap, threshold, radius);
+                pictureBox1.Image = (Image)zPhoto.AnisotropicFilter(curBitmap, iter, k);
             }
+
         }
         private ZPhotoEngineDll zPhoto = null;
         private Bitmap curBitmap = null;
-        private int radius = 5;
-        private int threshold = 28;
-        public int getRadius
+        private int iter = 7;
+        private int k = 10;
+        public int getIter
         {
-            get { return radius; }
+            get { return iter; }
         }
-        public int getThreshld
+        public int getK
         {
-            get { return threshold; }
+            get { return k; }
         }
-        //radius
         private void skinHScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
             if (curBitmap != null)
             {
-                threshold = skinHScrollBar2.Value;
-                radius = skinHScrollBar1.Value;
-                textBox1.Text = radius.ToString();
-                textBox2.Text = threshold.ToString();
-                pictureBox1.Image = (Image)zPhoto.SurfaceBlur(curBitmap, threshold, radius);
+                k = skinHScrollBar2.Value;
+                iter = skinHScrollBar1.Value;
+                textBox1.Text = iter.ToString();
+                textBox2.Text = k.ToString();
+                pictureBox1.Image = (Image)zPhoto.AnisotropicFilter(curBitmap, iter, k);
             }
+
         }
-        //threshold
+
         private void skinHScrollBar2_Scroll(object sender, ScrollEventArgs e)
         {
             if (curBitmap != null)
             {
-                threshold = skinHScrollBar2.Value;
-                radius = skinHScrollBar1.Value;
-                textBox1.Text = radius.ToString();
-                textBox2.Text = threshold.ToString();
-                pictureBox1.Image = (Image)zPhoto.SurfaceBlur(curBitmap, threshold, radius);
+                k = skinHScrollBar2.Value;
+                iter = skinHScrollBar1.Value;
+                textBox1.Text = iter.ToString();
+                textBox2.Text = k.ToString();
+                pictureBox1.Image = (Image)zPhoto.AnisotropicFilter(curBitmap, iter, k);
             }
         }
 
         private void skinButton1_Click(object sender, EventArgs e)
         {
-            threshold = skinHScrollBar2.Value;
-            radius = skinHScrollBar1.Value;
+            k = skinHScrollBar2.Value;
+            iter = skinHScrollBar1.Value;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

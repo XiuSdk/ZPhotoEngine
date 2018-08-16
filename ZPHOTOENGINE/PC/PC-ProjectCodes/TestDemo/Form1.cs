@@ -107,7 +107,18 @@ namespace TestDemo
         }
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://blog.csdn.net/Trent1985");
+            System.Diagnostics.Process.Start("https://blog.csdn.net/trent1985");
+        }
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (srcBitmap != null)
+                pictureBox1.Image = srcBitmap;
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (curBitmap != null)
+                pictureBox1.Image = curBitmap;
         }
         #endregion
 
@@ -443,6 +454,24 @@ namespace TestDemo
                 case ImageProcessId.ID_IMAGEWARP_WAVE:
                     curBitmap = zPhoto.ImageWarpWaveProcess(curBitmap, 60);
                     break;
+                case ImageProcessId.ID_SMARTBLUR:
+                    SmartBlurForm sbform = new SmartBlurForm(curFileName);
+                    if (sbform.ShowDialog() == DialogResult.OK)
+                    {
+                        int radius = sbform.getRadius;
+                        int threshold = sbform.getThreshld;
+                        curBitmap = zPhoto.SmartBlurProcess(curBitmap, radius, threshold);
+                    }
+                    break;
+                case ImageProcessId.ID_ANISOTROPICFILTER:
+                    AnisotropicFilterForm anisotropicform = new AnisotropicFilterForm(curFileName);
+                    if (anisotropicform.ShowDialog() == DialogResult.OK)
+                    {
+                        int iter = anisotropicform.getIter;
+                        int K = anisotropicform.getK;
+                        curBitmap = zPhoto.SmartBlurProcess(curBitmap, iter, K);
+                    }
+                    break;
                 default:
                     break;
             }
@@ -669,7 +698,20 @@ namespace TestDemo
         {
             BeginImageProcess(ImageProcessId.ID_NATURALSATURATION);
         }
+        private void smartBlurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BeginImageProcess(ImageProcessId.ID_SMARTBLUR);
+        }
         #endregion
+
+        private void anisotropicFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BeginImageProcess(ImageProcessId.ID_ANISOTROPICFILTER);
+        }
+
+
+
+
 
 
     }
