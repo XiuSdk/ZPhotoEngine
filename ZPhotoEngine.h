@@ -319,7 +319,7 @@ const int BLEND_MODE_DIVIDE                                       =  21;
 	             width-原始图像宽度
 				 height-原始图像高度
 				 stride-原始图像的Stride
-				 radius-高斯模糊半径，范围[0,128]
+				 radius-高斯模糊半径，范围[0,1000]
 	Output:      无.
 	Return:      0-成功,其他失败.
 	Others:      无.
@@ -332,7 +332,7 @@ const int BLEND_MODE_DIVIDE                                       =  21;
 	             width-原始图像宽度
 				 height-原始图像高度
 				 stride-原始图像的Stride
-				 radius-高斯模糊半径，范围[0,128]
+				 radius-高斯模糊半径，范围[0,1000]
 	Output:      无.
 	Return:      0-成功,其他失败.
 	Others:      无.
@@ -640,6 +640,32 @@ const int BLEND_MODE_DIVIDE                                       =  21;
 	Others:      无.
 	*************************************************/
     EXPORT int ZPHOTO_ColorTemperature(unsigned char* srcData,int width, int height, int stride, int intensity);
+	/*************************************************
+	Function:    ZPHOTO_Shadow 
+	Description: 阴影调节
+	Input:       srcData-原始图像，格式为32位BGRA格式
+	             width-原始图像宽度
+				 height-原始图像高度
+				 stride-原始图像的Stride
+				 intensity-阴影强度值，取值范围为[0,100]
+	Output:      无.
+	Return:      0-成功,其他失败.
+	Others:      无.
+	*************************************************/
+    EXPORT int ZPHOTO_Shadow(unsigned char* srcData,int width, int height, int stride, int intensity);
+	/*************************************************
+	Function:    ZPHOTO_Highlight
+	Description: 高光调节
+	Input:       srcData-原始图像，格式为32位BGRA格式
+	             width-原始图像宽度
+				 height-原始图像高度
+				 stride-原始图像的Stride
+				 intensity--高光强度值，取值范围为[0,100]
+	Output:      无.
+	Return:      0-成功,其他失败.
+	Others:      无.
+	*************************************************/
+    EXPORT int ZPHOTO_Highlight(unsigned char* srcData,int width, int height, int stride, int intensity);
 	/*************************************************
 	Function:    ZPHOTO_HighlightShadowPrecise
 	Description: 高光阴影调节
@@ -1069,6 +1095,75 @@ const int BLEND_MODE_DIVIDE                                       =  21;
     *******************************************************************************/
 	EXPORT int ZPHOTO_NaturalSaturation(unsigned char* srcData,int width, int height, int stride, int saturation);
 	EXPORT int ZPHOTO_LUTFilter(unsigned char* srcData, int width ,int height, int stride, unsigned char*Map, int ratio);
+/****************************************************Update***************************************************
+****************************************************Date:2018-06-21*******************************************
+Content:
+Smart blur filter
+Anisotropic Filter
+*************************************************************************************************************/
+/*************************************************
+	Function:    ZPHOTO_SmartBlurFilter
+	Description: Smart Blur
+	Input:       srcData-原始图像，格式为32位BGRA格式
+	             width-原始图像宽度
+				 height-原始图像高度
+				 stride-原始图像的Stride
+				 size-模糊半径值，取值范围为[0,100]
+				 threshold-调节阈值，范围[0,255]
+	Output:      无.
+	Return:      0-成功,其他失败.
+	Others:      无.
+*************************************************/
+	EXPORT int ZPHOTO_SmartBlurFilter(unsigned char* srcData, int width, int height, int stride, int size, int threshold);
+/*************************************************
+	Function:    ZPHOTO_AnisotropicFilter
+	Description: Anisotropic Filter
+	Input:       srcData-原始图像，格式为32位BGRA格式
+	             width-原始图像宽度
+				 height-原始图像高度
+				 stride-原始图像的Stride
+				 iter-迭代次数，取值范围为[0,100]
+				 k-扩散系数，范围[0,]
+				 lambda-[0,0.35],default 0.25
+				 offset-[0,10],default 3
+	Output:      无.
+	Return:      0-成功,其他失败.
+	Others:      无.
+*************************************************/
+	EXPORT int ZPHOTO_AnisotropicFilter(unsigned char* srcData, int width, int height, int stride, int iter, float k, float lambda = 0.25, int offset = 3);
+/*************************************************
+	Function:    ZPHOTO_DisplacementFilter
+	Description: Displacement Filter
+	Input:       srcData-原始图像，格式为32位BGRA格式
+	             width-原始图像宽度
+				 height-原始图像高度
+				 stride-原始图像的Stride
+				 maskData-置换图，格式为32位BGRA格式
+				 mWidth-置换图宽度
+				 mHeight-置换图高度
+				 mStride-置换图Stride
+				 hRatio-水平比例，范围[-100,100]
+				 vRatio-垂直比例，范围[-100,100]
+	Output:      无.
+	Return:      0-成功,其他失败.
+	Others:      无.
+*************************************************/
+	EXPORT int ZPHOTO_DisplacementFilter(unsigned char* srcData, int width, int height, int stride, unsigned char* maskData, int mWidth, int mHeight, int mStride, int hRatio, int vRatio);
+/*************************************************
+	Function:    ZPHOTO_NoiseEffect
+	Description: Noise effect
+	Input:       srcData-原始图像，格式为32位BGRA格式
+	             width-原始图像宽度
+				 height-原始图像高度
+				 stride-原始图像的Stride
+				 ratio-噪声图的混合比例，范围[0,100]
+				 sigma-噪声方差，范围[0,]
+				 phase-噪声幅度，范围[0,]
+	Output:      无.
+	Return:      0-成功,其他失败.
+	Others:      无.
+*************************************************/
+EXPORT int ZPHOTO_NoiseEffect(unsigned char *srcData, int width, int height, int stride, int ratio, float sigma, float phase);
 #else
 
 #ifdef __cplusplus
@@ -1076,7 +1171,7 @@ extern "C" {
 #endif    
 	//基本功能
 	int ZPHOTO_Exposure(unsigned char* srcData,int width, int height, int stride, int intensity);
-        int ZPHOTO_Saturation(unsigned char* srcData,int width, int height, int stride, int saturation);
+    int ZPHOTO_Saturation(unsigned char* srcData,int width, int height, int stride, int saturation);
 	int ZPHOTO_Posterize(unsigned char *srcData, int width, int height, int stride, int clusterNum);
 	int ZPHOTO_OverExposure(unsigned char *srcData, int width, int height, int stride);
 	int ZPHOTO_Lightness(unsigned char* srcData,int width, int height, int stride, int lightness);
@@ -1084,11 +1179,11 @@ extern "C" {
 	int ZPHOTO_HueAndSaturation(unsigned char* srcData,int width, int height, int stride,int hue, int saturation);
 	int ZPHOTO_HistagramEqualize(unsigned char* srcData,int width, int height, int stride);
 	int ZPHOTO_Desaturate(unsigned char *srcData, int width, int height, int stride, int ratio);
-        int ZPHOTO_Curve(unsigned char* srcData, int width, int height, int stride, int dstChannel, int knotsPos[6]);
+    int ZPHOTO_Curve(unsigned char* srcData, int width, int height, int stride, int dstChannel, int knotsPos[6]);
 	int ZPHOTO_ColorLevel(unsigned char * srcData , int width, int height ,int stride , int destChannel, unsigned char inputLeftLimit, float inputMiddle, unsigned char inputRightLimit, unsigned char outputLeftLimit , unsigned char outputRightLimit);
 	int ZPHOTO_NLinearBrightContrast(unsigned char* srcData,int width,int height,int stride,int bright,int contrast,int threshold);
-        int ZPHOTO_LinearBrightContrast(unsigned char* srcData,int width, int height, int stride, int brightness, int contrast,int threshold);
-        int ZPHOTO_Blackwhite(unsigned char *srcData, int width, int height, int stride, int kRed, int kGreen, int kBlue, int kYellow, int kCyan, int kMagenta);
+    int ZPHOTO_LinearBrightContrast(unsigned char* srcData,int width, int height, int stride, int brightness, int contrast,int threshold);
+    int ZPHOTO_Blackwhite(unsigned char *srcData, int width, int height, int stride, int kRed, int kGreen, int kBlue, int kYellow, int kCyan, int kMagenta);
 	int ZPHOTO_AutoContrast(unsigned char *srcData, int width, int height, int stride);
 	int ZPHOTO_AutoContrastAdjustWithParameters(unsigned char *srcData, int width, int height, int stride, float shadowCorrectRatio, float highlightCorrectRatio);
 	int ZPHOTO_AutoColorGradation(unsigned char *srcData, int width, int height, int stride);
@@ -1102,6 +1197,7 @@ extern "C" {
 	int ZPHOTO_MotionBlur(unsigned char* srcData,int width, int height, int stride, int angle, int distance);
 	int ZPHOTO_SurfaceBlur(unsigned char *srcData, int width, int height, int stride,int threshold, int radius);
 
+	//V1.2
 	int ZPHOTO_RadialBlur(unsigned char* srcData, int width, int height ,int stride, int cenX, int cenY, int amount);
 	int ZPHOTO_ZoomBlur(unsigned char* srcData, int width, int height ,int stride, int cenX, int cenY, int sampleRadius, int amount);
 	int ZPHOTO_Relief(unsigned char *srcData, int width, int height, int stride, int angle, int amount);
@@ -1147,20 +1243,23 @@ extern "C" {
 	//扩展功能
 	int ZPHOTO_FastestGaussFilter(unsigned char* srcData,int width, int height,int stride,float radius);
 	int ZPHOTO_ColorTemperature(unsigned char* srcData,int width, int height, int stride, int intensity);
-	int ZPHOTO_Shadow(unsigned char* srcData,int width, int height, int stride, int intensity);
 	int ZPHOTO_CalcWH( int inputImgSize[2], float angle, float scale, int transform_method, int outputImgSize[2],float H[]);
-        int ZPHOTO_ImageTransformation(unsigned char *srcData, int srcImgSize[2], unsigned char *dstData, int dstImgSize[2], float H[], int Interpolation_method, int Transform_method);
+    int ZPHOTO_ImageTransformation(unsigned char *srcData, int srcImgSize[2], unsigned char *dstData, int dstImgSize[2], float H[], int Interpolation_method, int Transform_method);
 	int ZPHOTO_FastMeanFilter(unsigned char* srcData, int width, int height ,int stride, int radius);
 	int ZPHOTO_SobelFilter(unsigned char *srcData, int width, int height,int stride);
 	int ZPHOTO_GlowingEdges(unsigned char* srcData, int width ,int height, int stride, int edgeSize, int edgeLightness, int edgeSmoothness);
 	int ZPHOTO_ImageWarpWave(unsigned char *srcData, int width, int height, int stride, int intensity);
-        //For Android Development
-        int ZPHOTO_RGBA2BGRA(unsigned char* srcData, int width, int height, int stride);
-        int ZPHOTO_BGRA2RGBA(unsigned char* srcData, int width, int height, int stride);
+    //For Android Development
+    int ZPHOTO_RGBA2BGRA(unsigned char* srcData, int width, int height, int stride);
+    int ZPHOTO_BGRA2RGBA(unsigned char* srcData, int width, int height, int stride);
 	int ZPHOTO_GammaCorrect(unsigned char* srcData, int width, int height, int stride, int intensity);
 	int ZPHOTO_HighlightShadowPrecise(unsigned char* srcData,int width, int height, int stride, float highlight, float shadow);
 	int ZPHOTO_NaturalSaturation(unsigned char* srcData,int width, int height, int stride, int saturation);
 	int ZPHOTO_LUTFilter(unsigned char* srcData, int width ,int height, int stride, unsigned char*Map, int ratio);
+	int ZPHOTO_SmartBlurFilter(unsigned char* srcData, int width, int height, int stride, int size, int threshold);
+	int ZPHOTO_AnisotropicFilter(unsigned char* srcData, int width, int height, int stride, int iter, float k, float lambda = 0.25, int offset = 3);
+	int ZPHOTO_DisplacementFilter(unsigned char* srcData, int width, int height, int stride, unsigned char* maskData, int mWidth, int mHeight, int mStride, int hRatio, int vRatio);
+    int ZPHOTO_NoiseEffect(unsigned char *srcData, int width, int height, int stride, int ratio, float sigma, float phase);
 #ifdef __cplusplus
 }
 #endif

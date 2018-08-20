@@ -113,6 +113,12 @@ namespace TestDemo
         private static extern int ZPHOTO_SmartBlurFilter(byte* srcData, int width, int height, int stride, int size, int threshold);
         [DllImport("ZPhotoEngine.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode, ExactSpelling = true)]
         private static extern int ZPHOTO_AnisotropicFilter(byte* srcData, int width, int height, int stride, int iter, float k, float lambda, int offset);
+
+        [DllImport("ZPhotoEngine.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode, ExactSpelling = true)]
+        private static extern int ZPHOTO_DisplacementFilter(byte* srcData, int width, int height, int stride, byte* maskData, int mWidth, int mHeight, int mStride, int hRatio, int vRatio);
+        
+        [DllImport("ZPhotoEngine.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode, ExactSpelling = true)]
+        private static extern int ZPHOTO_NoiseEffect(byte *srcData, int width, int height, int stride, int ratio, float sigma, float phase);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         #endregion
 
@@ -132,6 +138,28 @@ namespace TestDemo
         #endregion
 
         #region  API FOR C SHARP
+        public Bitmap NoiseEffect(Bitmap src, int ratio, float sigma, float phase)
+        {
+            Bitmap a = new Bitmap(src);
+            int w = a.Width;
+            int h = a.Height;
+            BitmapData srcData = a.LockBits(new Rectangle(0, 0, a.Width, a.Height), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
+            ZPHOTO_NoiseEffect((byte*)srcData.Scan0, w, h, srcData.Stride, ratio, sigma, phase);
+            a.UnlockBits(srcData);
+            return a;
+        }
+        public Bitmap DisplacementFilter(Bitmap src, Bitmap mask, int hRatio, int vRatio)
+        {
+            Bitmap a = new Bitmap(src);
+            int w = a.Width;
+            int h = a.Height;
+            BitmapData srcData = a.LockBits(new Rectangle(0, 0, a.Width, a.Height), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
+            BitmapData maskData = mask.LockBits(new Rectangle(0, 0, mask.Width, mask.Height), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
+            ZPHOTO_DisplacementFilter((byte*)srcData.Scan0, w, h, srcData.Stride, (byte*)maskData.Scan0, mask.Width, mask.Height,maskData.Stride, hRatio, vRatio);
+            a.UnlockBits(srcData);
+            mask.UnlockBits(maskData);
+            return a;
+        }
         public Bitmap LUTFilter(Bitmap src, Bitmap map, int ratio)
         {
             Bitmap a = new Bitmap(src);

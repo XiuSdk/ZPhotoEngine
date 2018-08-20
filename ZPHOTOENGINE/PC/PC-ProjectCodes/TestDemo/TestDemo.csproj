@@ -103,6 +103,12 @@
     <Compile Include="DifussionForm.Designer.cs">
       <DependentUpon>DifussionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DisplacementFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplacementFrom.Designer.cs">
+      <DependentUpon>DisplacementFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExposureForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DifussionForm.resx">
       <DependentUpon>DifussionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplacementFrom.resx">
+      <DependentUpon>DisplacementFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExposureForm.resx">
       <DependentUpon>ExposureForm.cs</DependentUpon>

@@ -110,4 +110,6 @@ public native static int native_ZPHOTO_ColorLevel(Bitmap bitmap, int destChannel
 public native static int native_ZPHOTO_LUTFilter(Bitmap bitmap,Bitmap dstbitmap, int ratio);
 public native static int native_ZPHOTO_SmartBlurFilter(Bitmap bitmap, int size, int threshold);
 public native static int native_ZPHOTO_AnisotropicFilter(Bitmap bitmap, int iter, float k, float lambda, int offset);
+public native static int native_ZPHOTO_DisplacementFilter(Bitmap bitmap,Bitmap maskBitmap, int hRatio, int vRatio);
+public native static int  native_ZPHOTO_NoiseEffect(Bitmap bitmap, int ratio, float sigma, float phase);
 }

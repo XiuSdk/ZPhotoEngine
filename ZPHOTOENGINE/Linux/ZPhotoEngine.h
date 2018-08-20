@@ -1131,6 +1131,39 @@ Anisotropic Filter
 	Others:      无.
 *************************************************/
 	EXPORT int ZPHOTO_AnisotropicFilter(unsigned char* srcData, int width, int height, int stride, int iter, float k, float lambda = 0.25, int offset = 3);
+/*************************************************
+	Function:    ZPHOTO_DisplacementFilter
+	Description: Displacement Filter
+	Input:       srcData-原始图像，格式为32位BGRA格式
+	             width-原始图像宽度
+				 height-原始图像高度
+				 stride-原始图像的Stride
+				 maskData-置换图，格式为32位BGRA格式
+				 mWidth-置换图宽度
+				 mHeight-置换图高度
+				 mStride-置换图Stride
+				 hRatio-水平比例，范围[-100,100]
+				 vRatio-垂直比例，范围[-100,100]
+	Output:      无.
+	Return:      0-成功,其他失败.
+	Others:      无.
+*************************************************/
+	EXPORT int ZPHOTO_DisplacementFilter(unsigned char* srcData, int width, int height, int stride, unsigned char* maskData, int mWidth, int mHeight, int mStride, int hRatio, int vRatio);
+/*************************************************
+	Function:    ZPHOTO_NoiseEffect
+	Description: Noise effect
+	Input:       srcData-原始图像，格式为32位BGRA格式
+	             width-原始图像宽度
+				 height-原始图像高度
+				 stride-原始图像的Stride
+				 ratio-噪声图的混合比例，范围[0,100]
+				 sigma-噪声方差，范围[0,]
+				 phase-噪声幅度，范围[0,]
+	Output:      无.
+	Return:      0-成功,其他失败.
+	Others:      无.
+*************************************************/
+EXPORT int ZPHOTO_NoiseEffect(unsigned char *srcData, int width, int height, int stride, int ratio, float sigma, float phase);
 #else
 
 #ifdef __cplusplus
@@ -1225,6 +1258,8 @@ extern "C" {
 	int ZPHOTO_LUTFilter(unsigned char* srcData, int width ,int height, int stride, unsigned char*Map, int ratio);
 	int ZPHOTO_SmartBlurFilter(unsigned char* srcData, int width, int height, int stride, int size, int threshold);
 	int ZPHOTO_AnisotropicFilter(unsigned char* srcData, int width, int height, int stride, int iter, float k, float lambda = 0.25, int offset = 3);
+	int ZPHOTO_DisplacementFilter(unsigned char* srcData, int width, int height, int stride, unsigned char* maskData, int mWidth, int mHeight, int mStride, int hRatio, int vRatio);
+    int ZPHOTO_NoiseEffect(unsigned char *srcData, int width, int height, int stride, int ratio, float sigma, float phase);
 #ifdef __cplusplus
 }
 #endif

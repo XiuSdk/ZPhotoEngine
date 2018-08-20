@@ -115,6 +115,9 @@
             this.toolStripSeparator154 = new System.Windows.Forms.ToolStripSeparator();
             this.最小值ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator157 = new System.Windows.Forms.ToolStripSeparator();
+            this.smartBlurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator37 = new System.Windows.Forms.ToolStripSeparator();
+            this.anisotropicFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.像素化ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.马赛克ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -131,15 +134,16 @@
             this.图像变形ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator159 = new System.Windows.Forms.ToolStripSeparator();
             this.waveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator38 = new System.Windows.Forms.ToolStripSeparator();
+            this.置换ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.smartBlurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.anisotropicFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator37 = new System.Windows.Forms.ToolStripSeparator();
+            this.噪声ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator39 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -579,43 +583,43 @@
             // 查找边缘ToolStripMenuItem
             // 
             this.查找边缘ToolStripMenuItem.Name = "查找边缘ToolStripMenuItem";
-            this.查找边缘ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.查找边缘ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.查找边缘ToolStripMenuItem.Text = "查找边缘";
             this.查找边缘ToolStripMenuItem.Click += new System.EventHandler(this.查找边缘ToolStripMenuItem_Click);
             // 
             // toolStripSeparator26
             // 
             this.toolStripSeparator26.Name = "toolStripSeparator26";
-            this.toolStripSeparator26.Size = new System.Drawing.Size(121, 6);
+            this.toolStripSeparator26.Size = new System.Drawing.Size(149, 6);
             // 
             // 浮雕效果ToolStripMenuItem
             // 
             this.浮雕效果ToolStripMenuItem.Name = "浮雕效果ToolStripMenuItem";
-            this.浮雕效果ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.浮雕效果ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.浮雕效果ToolStripMenuItem.Text = "浮雕效果";
             this.浮雕效果ToolStripMenuItem.Click += new System.EventHandler(this.浮雕效果ToolStripMenuItem_Click);
             // 
             // toolStripSeparator27
             // 
             this.toolStripSeparator27.Name = "toolStripSeparator27";
-            this.toolStripSeparator27.Size = new System.Drawing.Size(121, 6);
+            this.toolStripSeparator27.Size = new System.Drawing.Size(149, 6);
             // 
             // 扩散ToolStripMenuItem
             // 
             this.扩散ToolStripMenuItem.Name = "扩散ToolStripMenuItem";
-            this.扩散ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.扩散ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.扩散ToolStripMenuItem.Text = "扩散";
             this.扩散ToolStripMenuItem.Click += new System.EventHandler(this.扩散ToolStripMenuItem_Click);
             // 
             // toolStripSeparator28
             // 
             this.toolStripSeparator28.Name = "toolStripSeparator28";
-            this.toolStripSeparator28.Size = new System.Drawing.Size(121, 6);
+            this.toolStripSeparator28.Size = new System.Drawing.Size(149, 6);
             // 
             // 曝光过度ToolStripMenuItem
             // 
             this.曝光过度ToolStripMenuItem.Name = "曝光过度ToolStripMenuItem";
-            this.曝光过度ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.曝光过度ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.曝光过度ToolStripMenuItem.Text = "曝光过度";
             this.曝光过度ToolStripMenuItem.Click += new System.EventHandler(this.曝光过度ToolStripMenuItem_Click);
             // 
@@ -774,6 +778,25 @@
             this.toolStripSeparator157.Name = "toolStripSeparator157";
             this.toolStripSeparator157.Size = new System.Drawing.Size(167, 6);
             // 
+            // smartBlurToolStripMenuItem
+            // 
+            this.smartBlurToolStripMenuItem.Name = "smartBlurToolStripMenuItem";
+            this.smartBlurToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.smartBlurToolStripMenuItem.Text = "SmartBlur";
+            this.smartBlurToolStripMenuItem.Click += new System.EventHandler(this.smartBlurToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator37
+            // 
+            this.toolStripSeparator37.Name = "toolStripSeparator37";
+            this.toolStripSeparator37.Size = new System.Drawing.Size(167, 6);
+            // 
+            // anisotropicFilterToolStripMenuItem
+            // 
+            this.anisotropicFilterToolStripMenuItem.Name = "anisotropicFilterToolStripMenuItem";
+            this.anisotropicFilterToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.anisotropicFilterToolStripMenuItem.Text = "AnisotropicFilter";
+            this.anisotropicFilterToolStripMenuItem.Click += new System.EventHandler(this.anisotropicFilterToolStripMenuItem_Click);
+            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
@@ -784,7 +807,9 @@
             this.像素化ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.马赛克ToolStripMenuItem,
             this.toolStripSeparator35,
-            this.碎片ToolStripMenuItem});
+            this.碎片ToolStripMenuItem,
+            this.toolStripSeparator39,
+            this.噪声ToolStripMenuItem});
             this.像素化ToolStripMenuItem.Name = "像素化ToolStripMenuItem";
             this.像素化ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.像素化ToolStripMenuItem.Text = "像素化";
@@ -792,19 +817,19 @@
             // 马赛克ToolStripMenuItem
             // 
             this.马赛克ToolStripMenuItem.Name = "马赛克ToolStripMenuItem";
-            this.马赛克ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.马赛克ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.马赛克ToolStripMenuItem.Text = "马赛克";
             this.马赛克ToolStripMenuItem.Click += new System.EventHandler(this.马赛克ToolStripMenuItem_Click);
             // 
             // toolStripSeparator35
             // 
             this.toolStripSeparator35.Name = "toolStripSeparator35";
-            this.toolStripSeparator35.Size = new System.Drawing.Size(109, 6);
+            this.toolStripSeparator35.Size = new System.Drawing.Size(149, 6);
             // 
             // 碎片ToolStripMenuItem
             // 
             this.碎片ToolStripMenuItem.Name = "碎片ToolStripMenuItem";
-            this.碎片ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.碎片ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.碎片ToolStripMenuItem.Text = "碎片";
             this.碎片ToolStripMenuItem.Click += new System.EventHandler(this.碎片ToolStripMenuItem_Click);
             // 
@@ -824,7 +849,7 @@
             // uSM锐化ToolStripMenuItem
             // 
             this.uSM锐化ToolStripMenuItem.Name = "uSM锐化ToolStripMenuItem";
-            this.uSM锐化ToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.uSM锐化ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.uSM锐化ToolStripMenuItem.Text = "USM锐化";
             this.uSM锐化ToolStripMenuItem.Click += new System.EventHandler(this.uSM锐化ToolStripMenuItem_Click);
             // 
@@ -861,10 +886,12 @@
             // 
             this.图像变形ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator159,
-            this.waveToolStripMenuItem});
+            this.waveToolStripMenuItem,
+            this.toolStripSeparator38,
+            this.置换ToolStripMenuItem});
             this.图像变形ToolStripMenuItem.Name = "图像变形ToolStripMenuItem";
             this.图像变形ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.图像变形ToolStripMenuItem.Text = "图像变形";
+            this.图像变形ToolStripMenuItem.Text = "扭曲";
             // 
             // toolStripSeparator159
             // 
@@ -877,6 +904,18 @@
             this.waveToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.waveToolStripMenuItem.Text = "Wave";
             this.waveToolStripMenuItem.Click += new System.EventHandler(this.waveToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator38
+            // 
+            this.toolStripSeparator38.Name = "toolStripSeparator38";
+            this.toolStripSeparator38.Size = new System.Drawing.Size(105, 6);
+            // 
+            // 置换ToolStripMenuItem
+            // 
+            this.置换ToolStripMenuItem.Name = "置换ToolStripMenuItem";
+            this.置换ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.置换ToolStripMenuItem.Text = "置换";
+            this.置换ToolStripMenuItem.Click += new System.EventHandler(this.置换ToolStripMenuItem_Click);
             // 
             // panel2
             // 
@@ -940,24 +979,17 @@
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(92, 17);
             this.toolStripStatusLabel3.Text = "当前进度：完成";
             // 
-            // smartBlurToolStripMenuItem
+            // 噪声ToolStripMenuItem
             // 
-            this.smartBlurToolStripMenuItem.Name = "smartBlurToolStripMenuItem";
-            this.smartBlurToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.smartBlurToolStripMenuItem.Text = "SmartBlur";
-            this.smartBlurToolStripMenuItem.Click += new System.EventHandler(this.smartBlurToolStripMenuItem_Click);
+            this.噪声ToolStripMenuItem.Name = "噪声ToolStripMenuItem";
+            this.噪声ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.噪声ToolStripMenuItem.Text = "噪声";
+            this.噪声ToolStripMenuItem.Click += new System.EventHandler(this.噪声ToolStripMenuItem_Click);
             // 
-            // anisotropicFilterToolStripMenuItem
+            // toolStripSeparator39
             // 
-            this.anisotropicFilterToolStripMenuItem.Name = "anisotropicFilterToolStripMenuItem";
-            this.anisotropicFilterToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.anisotropicFilterToolStripMenuItem.Text = "AnisotropicFilter";
-            this.anisotropicFilterToolStripMenuItem.Click += new System.EventHandler(this.anisotropicFilterToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator37
-            // 
-            this.toolStripSeparator37.Name = "toolStripSeparator37";
-            this.toolStripSeparator37.Size = new System.Drawing.Size(167, 6);
+            this.toolStripSeparator39.Name = "toolStripSeparator39";
+            this.toolStripSeparator39.Size = new System.Drawing.Size(149, 6);
             // 
             // Form1
             // 
@@ -1098,6 +1130,10 @@
         private System.Windows.Forms.ToolStripMenuItem smartBlurToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator37;
         private System.Windows.Forms.ToolStripMenuItem anisotropicFilterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 置换ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator38;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator39;
+        private System.Windows.Forms.ToolStripMenuItem 噪声ToolStripMenuItem;
     }
 }
 

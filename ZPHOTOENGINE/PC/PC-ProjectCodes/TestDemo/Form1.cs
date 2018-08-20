@@ -96,6 +96,7 @@ namespace TestDemo
                 pictureBox1.Image = (Image)curBitmap;
                 toolStripStatusLabel2.Text = "图像宽高: (" + curBitmap.Width.ToString() + "," + curBitmap.Height.ToString() + ")";
             }
+            pictureBox1.Image = curBitmap;
         }
 
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -453,6 +454,8 @@ namespace TestDemo
                     break;
                 case ImageProcessId.ID_IMAGEWARP_WAVE:
                     curBitmap = zPhoto.ImageWarpWaveProcess(curBitmap, 60);
+                    /////////////////////////////////////////////////////////
+                    
                     break;
                 case ImageProcessId.ID_SMARTBLUR:
                     SmartBlurForm sbform = new SmartBlurForm(curFileName);
@@ -463,14 +466,25 @@ namespace TestDemo
                         curBitmap = zPhoto.SmartBlurProcess(curBitmap, radius, threshold);
                     }
                     break;
-                case ImageProcessId.ID_ANISOTROPICFILTER:
-                    AnisotropicFilterForm anisotropicform = new AnisotropicFilterForm(curFileName);
-                    if (anisotropicform.ShowDialog() == DialogResult.OK)
+                case ImageProcessId.ID_DISPLACEMENTFILTER:
+                    DisplacementFrom displacementform = new DisplacementFrom();
+                    if (displacementform.ShowDialog() == DialogResult.OK)
                     {
-                        int iter = anisotropicform.getIter;
-                        int K = anisotropicform.getK;
-                        curBitmap = zPhoto.SmartBlurProcess(curBitmap, iter, K);
+                        string mskPath = displacementform.getMaskPath;
+                        int hRatio = displacementform.getHRatio;
+                        int vRatio = displacementform.getVRatio;
+                        try
+                        {
+                            curBitmap = zPhoto.DisplacementFilter(curBitmap, new Bitmap(mskPath), hRatio, vRatio);
+                        }
+                        catch (Exception exp)
+                        {
+                            MessageBox.Show("Please check input params!");
+                        }
                     }
+                    break;
+                case ImageProcessId.ID_NOISEEFFECT:
+                    curBitmap = zPhoto.NoiseEffect(curBitmap, 100, 0.5f, 50.0f);
                     break;
                 default:
                     break;
@@ -707,6 +721,16 @@ namespace TestDemo
         private void anisotropicFilterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BeginImageProcess(ImageProcessId.ID_ANISOTROPICFILTER);
+        }
+
+        private void 置换ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BeginImageProcess(ImageProcessId.ID_DISPLACEMENTFILTER);
+        }
+
+        private void 噪声ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BeginImageProcess(ImageProcessId.ID_NOISEEFFECT);
         }
 
 
